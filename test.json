@@ -1,4 +1,4 @@
 ---
-permalink: /:basename.html
+
 ---
 {"tests":["one","two"]}
