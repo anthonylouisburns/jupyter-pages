@@ -5,7 +5,7 @@ title: hello
 <ul id="*-">
 {% for post in site.posts %}
   <li class="post-{{ post.category }}">
-    <a href="{{ site.url }}{{ post.url }}">{{ post.url }}</a>
+    <a href="{{ site.url }}{{ post.url }}">----{{ post.url }}</a>
   </li>
 {% endfor %}
 </ul>
