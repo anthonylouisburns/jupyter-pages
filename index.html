@@ -5,12 +5,7 @@ title: hello
 <ul id="*-">
 {% for post in site.posts %}
   <li class="post-{{ post.category }}">
-  {{ site.html_url }}  {{ post.url }}
-  {% if post.external_url == nil %}
-    <a href="">{{ site.name }}{{ post.url }}</a>><abbr>{{ post.date | date_to_string }}</abbr>
-  {% else %}
-    <a href="{{ post.external_url }}">{{ post.title }}</a><abbr>{{ post.date | date_to_string }}</abbr>
-  {% endif %}
+    <a href="">{{ site.name }}{{ post.url }}</a>
   </li>
 {% endfor %}
 </ul>
