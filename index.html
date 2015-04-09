@@ -5,6 +5,7 @@ title: hello
 <ul id="*-">
 {% for post in site.posts %}
   <li class="post-{{ post.category }}">
+  {{ site.html_url }}  {{ post.url }}
   {% if post.external_url == nil %}
     <a href="">{{ site.html_url }}{{ post.url }}</a>><abbr>{{ post.date | date_to_string }}</abbr>
   {% else %}
