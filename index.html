@@ -1,8 +1,8 @@
 ---
 title: hello
 ---
-
-<ul id="***{{ site.url }}***">
+{{ site }}
+<ul id="*-">
 {% for post in site.posts %}
   <li class="post-{{ post.category }}">
   {% if post.external_url == nil %}
