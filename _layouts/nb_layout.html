@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{{ page.title }}</title>
+        <link href="/public/css/ipython.min.css" rel="stylesheet">
+        <link href="/public/css/style.min.css" rel="stylesheet">
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript">
+        </script>
+        <script type="text/javascript">
+            init_mathjax = function() {
+                if (window.MathJax) {
+                    // MathJax loaded
+                    MathJax.Hub.Config({
+                        tex2jax: {
+                            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                            processEscapes: true,
+                            processEnvironments: true
+                        },
+                        displayAlign: 'center',
+                        "HTML-CSS": {
+                            styles: {'.MathJax_Display': {"margin": 0}},
+                            linebreaks: { automatic: true }
+                        }
+                    });
+                    MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+                }
+            }
+            init_mathjax();
+        </script>
+    </head>
+    <body data-spy="scroll" data-target=".subnav" data-offset="50">
+        <!-- These are loaded at the top of the body so they are available to
+             notebook cells when they are loaded below. -->
+        <script src="/static/components/jquery/dist/jquery.min.js"></script>
+        <script src="/static/components/requirejs/require.js"></script>
+        <script src="/static/components/moment/min/moment.min.js"></script>
+        <!-- Navbar
+        ================================================== -->
+        <nav id="menubar" class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">{{ page.title }}</a>
+                </div>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="">
+                            <a href="http://ipython.org">IPython</a>
+                        </li>
+                        <li class="">
+                            <a href="http://jupyter.org">Jupyter</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            {{ content }}
+        </div>
+
+        <script src="/static/components/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/static/components/headroom.js/dist/headroom.min.js"></script>
+        <script src="/static/components/headroom.js/dist/jQuery.headroom.min.js"></script>
+        <script>
+            $(function(){ $("#menubar").headroom({
+                tolerance: 5,
+                offset: 205,
+                classes: {
+                    initial: "animated",
+                    pinned: "slideInDown",
+                    unpinned: "slideOutUp"
+                }
+            })});
+        </script>
+    </body>
+</html>

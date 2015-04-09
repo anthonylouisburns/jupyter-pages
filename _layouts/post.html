@@ -1,5 +1,15 @@
 ---
 layout: default
 ---
-{{ page.data_source }}
+<b>{{ page.data_source }}</b>
+<b style="background-color:lightgrey">{{ site.data[page.data_source] }}</b>
+
+{% assign post_data = site.data[page.data_source] %}
+
+<b style="background-color:lightblue">{{ post_data }}</b><br/>
+
+{% for num in post_data.list %}
+<b style="background-color:lightblue">{{ num }}</b><br/>
+{% endfor %}
+
 end

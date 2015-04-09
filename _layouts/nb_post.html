@@ -1,0 +1,68 @@
+---
+layout: nb_layout
+---
+<!--<b>{{ page.data_source }}</b>-->
+
+{% assign post_data = site.data[page.data_source] %}
+
+<div id="notebook">
+    <div id="notebook-container">
+
+        {% for cell in site.data.jripynb.cells %}
+        {% if cell.cell_type == "heading" %}
+        <div class="cell border-box-sizing text_cell rendered">
+            <div class="prompt input_prompt">
+            </div>
+            <div class="inner_cell">
+                <div class="text_cell_render border-box-sizing rendered_html">
+                    {% for s in cell.source %}
+                    <h1 id="{{s}}">{{ s }}<a class="anchor-link" href="#{{s}}">&#182;</a></h1>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+        {% elsif cell.cell_type == "markdown" %}
+        <div class="cell border-box-sizing text_cell rendered">
+            <div class="prompt input_prompt">
+            </div>
+            <div class="inner_cell">
+                <div class="text_cell_render border-box-sizing rendered_html">
+                    {% for s in cell.source %}
+                    <p>{{ s  | markdownify }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        {% elsif cell.cell_type == "code" %}
+        <b>{{ cell.cell_type }}</b>
+        <div class="cell border-box-sizing text_cell rendered">
+            <div class="prompt input_prompt">
+                {% for s in cell.input %}
+                <p>{{ s  }}</p>
+                {% endfor %}
+            </div>
+            <div class="inner_cell">
+                <div class="text_cell_render border-box-sizing rendered_html">
+                    {% for s in cell.outputs %}
+                    {% if s.output_type == "display_data" %}
+                    <div class="output_png output_subarea ">
+                        <img src="data:image/png;base64,{{ s.png }}"/>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        {% else %}
+        UNKNOWN CELL TYPE
+        {{ cell }}
+        {% endif %}
+        {% endfor %}
+
+    </div>
+</div>
+
+
