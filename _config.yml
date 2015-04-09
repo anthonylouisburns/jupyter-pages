@@ -4,4 +4,4 @@ gems:
 - jekyll-redirect-from
 - jekyll-sitemap
 
-url: /jupyter-pages/
+url: /jupyter-pages
