@@ -9,3 +9,10 @@ title: hello
   </li>
 {% endfor %}
 </ul>
+
+
+<ul id="*-">
+{% for x in site %}
+<b>{{x[0]}}</b>:{{x}}<br/> 
+{% endfor %}
+</ul>
